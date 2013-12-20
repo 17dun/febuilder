@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--$$CONTNET_START$$-->
+<project name="Lego JS Files Merge" default="Merge ui.js" basedir=".">
+ <property name="root-path" value="../../../.." />
+ <property name="fe-path" value="../.." />
+ <property name="js-src-path" value="${fe-path}/js-src" />
+ <property name="js-run-path" value="${root-path}/static/js" />
+<!--Merge core.js-->
+<target name="Merge core.js" >
+<echo message="merge core.js Begin"/>
+<concat destfile="${js-run-path}/core.js" encoding="utf-8">
+   <!--  lib dir -->
+   <fileset dir="${js-src-path}/lib/" includes="jquery-1.9.1.js"/>
+   <fileset dir="${js-src-path}/lib/" includes="underscore.js"/>
+   <fileset dir="${js-src-path}/lib/" includes="backbone.js"/>
+   <fileset dir="${js-src-path}/lib/" includes="jquery.tmpl.js"/>
+   <!--  tools dir -->
+   <!--  com dir -->
+   <fileset dir="${js-src-path}/com/" includes="Com.js"/>
+   <fileset dir="${js-src-path}/com/" includes="Interface.js"/>
+   <fileset dir="${js-src-path}/com/" includes="Validator.js"/>
+   <fileset dir="${js-src-path}/com/" includes="Storage.js"/>
+   <fileset dir="${js-src-path}/com/" includes="Log.js"/>
+   <fileset dir="${js-src-path}/com/" includes="RunActiveContent.js"/>
+   <fileset dir="${js-src-path}/com/" includes="Image.js"/>
+   <fileset dir="${js-src-path}/com/" includes="Grid.js"/>
+</concat>
+<echo message="Merge core.js Finished"/>
+</target>
+<!--Merge flash.js-->
+<target name="Merge flash.js" depends="Merge core.js">
+<echo message="merge flash.js Begin"/>
+<concat destfile="${js-run-path}/flash.js" encoding="utf-8">
+   <!--  com dir -->
+   <fileset dir="${js-src-path}/com/" includes="RunActiveContent.js"/>
+</concat>
+<echo message="Merge flash.js Finished"/>
+</target>
+<!--Merge lego.js-->
+<target name="Merge lego.js" depends="Merge flash.js">
+<echo message="merge lego.js Begin"/>
+<concat destfile="${js-run-path}/lego.js" encoding="utf-8">
+   <!--  conf dir -->
+   <fileset dir="${js-src-path}/conf/" includes="Config.js"/>
+   <!--  base dir -->
+   <fileset dir="${js-src-path}/base/" includes="Base.js"/>
+   <fileset dir="${js-src-path}/base/" includes="Base.Config.js"/>
+   <fileset dir="${js-src-path}/base/" includes="Base.Action.js"/>
+   <fileset dir="${js-src-path}/base/" includes="Base.Base.js"/>
+   <fileset dir="${js-src-path}/base/" includes="Base.PublishProcess.js"/>
+   <fileset dir="${js-src-path}/base/" includes="Base.Dao.js"/>
+   <!--  user dir -->
+   <fileset dir="${js-src-path}/user/" includes="User.js"/>
+   <fileset dir="${js-src-path}/user/" includes="User.Config.js"/>
+   <fileset dir="${js-src-path}/user/" includes="User.Util.js"/>
+   <fileset dir="${js-src-path}/user/" includes="User.Action.js"/>
+   <fileset dir="${js-src-path}/user/" includes="User.Base.js"/>
+   <fileset dir="${js-src-path}/user/" includes="User.Dao.js"/>
+   <!--  upload dir -->
+   <fileset dir="${js-src-path}/upload/" includes="Upload.js"/>
+   <fileset dir="${js-src-path}/upload/" includes="Upload.Config.js"/>
+   <fileset dir="${js-src-path}/upload/" includes="Upload.Util.js"/>
+   <fileset dir="${js-src-path}/upload/" includes="Upload.Dao.js"/>
+   <fileset dir="${js-src-path}/upload/" includes="Upload.Base.js"/>
+   <fileset dir="${js-src-path}/upload/" includes="Upload.Files.js"/>
+   <fileset dir="${js-src-path}/upload/" includes="Upload.Qichuan.js"/>
+   <fileset dir="${js-src-path}/upload/" includes="Upload.Edit.js"/>
+   <fileset dir="${js-src-path}/upload/" includes="Upload.Action.js"/>
+   <!--  ftp dir -->
+   <fileset dir="${js-src-path}/ftp/" includes="FTP.js"/>
+   <fileset dir="${js-src-path}/ftp/" includes="FTP.Config.js"/>
+   <fileset dir="${js-src-path}/ftp/" includes="FTP.Base.js"/>
+   <fileset dir="${js-src-path}/ftp/" includes="FTP.Action.js"/>
+   <fileset dir="${js-src-path}/ftp/" includes="FTP.Collect.js"/>
+   <fileset dir="${js-src-path}/ftp/" includes="FTP.Setting.js"/>
+   <fileset dir="${js-src-path}/ftp/" includes="FTP.Dir.js"/>
+   <fileset dir="${js-src-path}/ftp/" includes="FTP.Dao.js"/>
+   <!--  suggest dir -->
+   <fileset dir="${js-src-path}/suggest/" includes="Suggest.Dao.js"/>
+   <fileset dir="${js-src-path}/suggest/" includes="Suggest.Base.js"/>
+   <fileset dir="${js-src-path}/suggest/" includes="Suggest.Action.js"/>
+   <!--  editor dir -->
+   <fileset dir="${js-src-path}/editor/" includes="Editor.js"/>
+   <fileset dir="${js-src-path}/editor/" includes="Editor.Dao.js"/>
+   <fileset dir="${js-src-path}/editor/" includes="Editor.Simple.js"/>
+   <fileset dir="${js-src-path}/editor/" includes="Editor.BatchSimple.js"/>
+   <!--  material dir -->
+   <fileset dir="${js-src-path}/material/" includes="Material.js"/>
+   <fileset dir="${js-src-path}/material/" includes="Material.Config.js"/>
+   <fileset dir="${js-src-path}/material/" includes="Material.Base.js"/>
+   <fileset dir="${js-src-path}/material/" includes="Material.Grid.js"/>
+   <fileset dir="${js-src-path}/material/" includes="Material.Util.js"/>
+   <fileset dir="${js-src-path}/material/" includes="Material.Process.js"/>
+   <fileset dir="${js-src-path}/material/" includes="Material.Action.js"/>
+   <fileset dir="${js-src-path}/material/" includes="Material.Dao.js"/>
+   <!--  sport dir -->
+   <fileset dir="${js-src-path}/sport/" includes="Sport.js"/>
+   <fileset dir="${js-src-path}/sport/" includes="Sport.Config.js"/>
+   <fileset dir="${js-src-path}/sport/" includes="Sport.Base.js"/>
+   <fileset dir="${js-src-path}/sport/" includes="Sport.Event.js"/>
+   <fileset dir="${js-src-path}/sport/" includes="Sport.ScheduleEdit.js"/>
+   <fileset dir="${js-src-path}/sport/" includes="Sport.LiveEdit.js"/>
+   <fileset dir="${js-src-path}/sport/" includes="Sport.LiveConfig.js"/>
+   <fileset dir="${js-src-path}/sport/" includes="Sport.Query.js"/>
+   <fileset dir="${js-src-path}/sport/" includes="Sport.Grid.js"/>
+   <fileset dir="${js-src-path}/sport/" includes="Sport.QueryLive.js"/>
+   <fileset dir="${js-src-path}/sport/" includes="Sport.GridLive.js"/>
+   <fileset dir="${js-src-path}/sport/" includes="Sport.Action.js"/>
+   <fileset dir="${js-src-path}/sport/" includes="Sport.Dao.js"/>
+   <!--  people dir -->
+   <fileset dir="${js-src-path}/people/" includes="People.js"/>
+   <fileset dir="${js-src-path}/people/" includes="People.Config.js"/>
+   <fileset dir="${js-src-path}/people/" includes="People.Base.js"/>
+   <fileset dir="${js-src-path}/people/" includes="People.Action.js"/>
+   <fileset dir="${js-src-path}/people/" includes="People.Dao.js"/>
+   <!--  album dir -->
+   <fileset dir="${js-src-path}/album/" includes="Album.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.Config.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.GridCfg.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.Dao.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.Base.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.Action.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.Grid.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.SubGrid.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.MusicGrid.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.Query.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.Crop.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.Shot.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.Util.js"/>
+   <fileset dir="${js-src-path}/album/" includes="FormValue.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.SelectResourceGrid.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.MaintainResourceGrid.js"/>
+   <fileset dir="${js-src-path}/album/" includes="Album.SelectResourceQuery.js"/>
+   <!--  collection dir -->
+   <fileset dir="${js-src-path}/collection/" includes="Collection.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.Config.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.Dao.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.Base.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.Action.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.Util.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.VideoGrid.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.AlbumGrid.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.AlbumQuery.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.VideoQuery.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.SubalbumVideoGrid.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.ConnectContentGrid.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.ConnectListGrid.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.ConnectListQuery.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Colletion.Connect.js"/>
+   <fileset dir="${js-src-path}/collection/" includes="Collection.Musicalbum.js"/>
+   <!--  collection/playlist dir -->
+   <fileset dir="${js-src-path}/collection/playlist/" includes="Playlist.js"/>
+   <fileset dir="${js-src-path}/collection/playlist/" includes="Playlist.Config.js"/>
+   <fileset dir="${js-src-path}/collection/playlist/" includes="Playlist.Dao.js"/>
+   <fileset dir="${js-src-path}/collection/playlist/" includes="Playlist.Base.js"/>
+   <fileset dir="${js-src-path}/collection/playlist/" includes="Playlist.Action.js"/>
+   <fileset dir="${js-src-path}/collection/playlist/" includes="Playlist.Util.js"/>
+   <fileset dir="${js-src-path}/collection/playlist/" includes="Playlist.PlaylistGrid.js"/>
+   <fileset dir="${js-src-path}/collection/playlist/" includes="Playlist.PlaylistQuery.js"/>
+   <fileset dir="${js-src-path}/collection/playlist/" includes="Playlist.Entity.js"/>
+   <fileset dir="${js-src-path}/collection/playlist/" includes="Playlist.Grid.js"/>
+   <!--  event dir -->
+   <fileset dir="${js-src-path}/event/" includes="Event.js"/>
+   <fileset dir="${js-src-path}/event/" includes="Event.Config.js"/>
+   <fileset dir="${js-src-path}/event/" includes="Event.Dao.js"/>
+   <fileset dir="${js-src-path}/event/" includes="Event.Action.js"/>
+   <fileset dir="${js-src-path}/event/" includes="Event.Util.js"/>
+   <fileset dir="${js-src-path}/event/" includes="Event.Grid.js"/>
+   <fileset dir="${js-src-path}/event/" includes="Event.Query.js"/>
+   <!--  video dir -->
+   <fileset dir="${js-src-path}/video/" includes="Video.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Dao.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Config.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Util.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Status.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Edit.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Dsj.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Dy.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Zy.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Sszy.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Ph.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Dm.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Ss.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Yy.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Jlp.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Yl.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Yx.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Ty.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Ly.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Jy.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Sh.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Gx.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Gg.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Tm.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Lxhz.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Wdy.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Cj.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Gkk.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Cs.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Se.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Qc.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Yc.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Baidu.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Base.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Grid.js"/>
+   <fileset dir="${js-src-path}/video/" includes="Video.Action.js"/>
+   <!--  pilosity dir -->
+   <fileset dir="${js-src-path}/pilosity/" includes="Pilosity.js"/>
+   <fileset dir="${js-src-path}/pilosity/" includes="Pilosity.Config.js"/>
+   <fileset dir="${js-src-path}/pilosity/" includes="Pilosity.Util.js"/>
+   <fileset dir="${js-src-path}/pilosity/" includes="Pilosity.Dao.js"/>
+   <fileset dir="${js-src-path}/pilosity/" includes="Pilosity.Base.js"/>
+   <fileset dir="${js-src-path}/pilosity/" includes="Pilosity.Action.js"/>
+   <!--  attention dir -->
+   <fileset dir="${js-src-path}/attention/" includes="Attention.js"/>
+   <fileset dir="${js-src-path}/attention/" includes="Attention.Config.js"/>
+   <fileset dir="${js-src-path}/attention/" includes="Attention.Util.js"/>
+   <fileset dir="${js-src-path}/attention/" includes="Attention.Dao.js"/>
+   <fileset dir="${js-src-path}/attention/" includes="Attention.Base.js"/>
+   <fileset dir="${js-src-path}/attention/" includes="Attention.Grid.js"/>
+   <fileset dir="${js-src-path}/attention/" includes="Attention.Action.js"/>
+   <!--  audit dir -->
+   <fileset dir="${js-src-path}/audit/" includes="Audit.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.Config.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.Base.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.Action.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.Dao.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.Abnormal.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.Sort.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.Qc.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.QcTimeset.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.Details.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.Grid.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.Query.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.Partner.js"/>
+   <fileset dir="${js-src-path}/audit/" includes="Audit.QA.js"/>
+   <!--  task dir -->
+   <fileset dir="${js-src-path}/task/" includes="Task.js"/>
+   <fileset dir="${js-src-path}/task/" includes="Task.Config.js"/>
+   <fileset dir="${js-src-path}/task/" includes="Task.Dao.js"/>
+   <fileset dir="${js-src-path}/task/" includes="Task.Base.js"/>
+   <fileset dir="${js-src-path}/task/" includes="Task.List.js"/>
+   <fileset dir="${js-src-path}/task/" includes="Task.Action.js"/>
+   <!--  brand dir -->
+   <fileset dir="${js-src-path}/brand/" includes="Brand.js"/>
+   <fileset dir="${js-src-path}/brand/" includes="Brand.Config.js"/>
+   <fileset dir="${js-src-path}/brand/" includes="Brand.Dao.js"/>
+   <fileset dir="${js-src-path}/brand/" includes="Brand.Base.js"/>
+   <fileset dir="${js-src-path}/brand/" includes="Brand.Action.js"/>
+   <!--  message dir -->
+   <fileset dir="${js-src-path}/message/" includes="Message.js"/>
+   <fileset dir="${js-src-path}/message/" includes="Message.Grid.js"/>
+   <fileset dir="${js-src-path}/message/" includes="Message.Query.js"/>
+   <fileset dir="${js-src-path}/message/" includes="Message.List.js"/>
+   <fileset dir="${js-src-path}/message/" includes="Message.Dao.js"/>
+   <fileset dir="${js-src-path}/message/" includes="Message.Base.js"/>
+   <fileset dir="${js-src-path}/message/" includes="Message.Config.js"/>
+   <fileset dir="${js-src-path}/message/" includes="Message.Action.js"/>
+   <!--  channel dir -->
+   <fileset dir="${js-src-path}/channel/" includes="Channel.js"/>
+   <fileset dir="${js-src-path}/channel/" includes="Channel.Grid.js"/>
+   <fileset dir="${js-src-path}/channel/" includes="Channel.Dao.js"/>
+   <fileset dir="${js-src-path}/channel/" includes="Channel.Base.js"/>
+   <fileset dir="${js-src-path}/channel/" includes="Channel.Util.js"/>
+   <fileset dir="${js-src-path}/channel/" includes="Channel.Config.js"/>
+   <fileset dir="${js-src-path}/channel/" includes="Channel.Action.js"/>
+   <!--  group dir -->
+   <fileset dir="${js-src-path}/group/" includes="Group.js"/>
+   <fileset dir="${js-src-path}/group/" includes="Group.Grid.js"/>
+   <fileset dir="${js-src-path}/group/" includes="Group.Dao.js"/>
+   <fileset dir="${js-src-path}/group/" includes="Group.Base.js"/>
+   <fileset dir="${js-src-path}/group/" includes="Group.Task.js"/>
+   <fileset dir="${js-src-path}/group/" includes="Group.Util.js"/>
+   <fileset dir="${js-src-path}/group/" includes="Group.Config.js"/>
+   <fileset dir="${js-src-path}/group/" includes="Group.Action.js"/>
+   <!--  bulletin dir -->
+   <fileset dir="${js-src-path}/bulletin/" includes="Bulletin.js"/>
+   <fileset dir="${js-src-path}/bulletin/" includes="Bulletin.Grid.js"/>
+   <fileset dir="${js-src-path}/bulletin/" includes="Bulletin.Dao.js"/>
+   <fileset dir="${js-src-path}/bulletin/" includes="Bulletin.Base.js"/>
+   <fileset dir="${js-src-path}/bulletin/" includes="Bulletin.Util.js"/>
+   <fileset dir="${js-src-path}/bulletin/" includes="Bulletin.Config.js"/>
+   <fileset dir="${js-src-path}/bulletin/" includes="Bulletin.Action.js"/>
+   <!--  category dir -->
+   <fileset dir="${js-src-path}/category/" includes="Category.js"/>
+   <fileset dir="${js-src-path}/category/" includes="Category.Grid.js"/>
+   <fileset dir="${js-src-path}/category/" includes="Category.Dao.js"/>
+   <fileset dir="${js-src-path}/category/" includes="Category.Base.js"/>
+   <fileset dir="${js-src-path}/category/" includes="Category.Util.js"/>
+   <fileset dir="${js-src-path}/category/" includes="Category.Config.js"/>
+   <fileset dir="${js-src-path}/category/" includes="Category.Action.js"/>
+   <!--  game dir -->
+   <fileset dir="${js-src-path}/game/" includes="Game.js"/>
+   <fileset dir="${js-src-path}/game/" includes="Game.Util.js"/>
+   <fileset dir="${js-src-path}/game/" includes="Game.Grid.js"/>
+   <fileset dir="${js-src-path}/game/" includes="Game.Dao.js"/>
+   <fileset dir="${js-src-path}/game/" includes="Game.Config.js"/>
+   <fileset dir="${js-src-path}/game/" includes="Game.Base.js"/>
+   <fileset dir="${js-src-path}/game/" includes="Game.Action.js"/>
+   <!--  contract dir -->
+   <fileset dir="${js-src-path}/contract/" includes="Contract.js"/>
+   <fileset dir="${js-src-path}/contract/" includes="Contract.Config.js"/>
+   <fileset dir="${js-src-path}/contract/" includes="Contract.Util.js"/>
+   <fileset dir="${js-src-path}/contract/" includes="Contract.Dao.js"/>
+   <fileset dir="${js-src-path}/contract/" includes="Contract.Base.js"/>
+   <fileset dir="${js-src-path}/contract/" includes="Contract.Grid.js"/>
+   <fileset dir="${js-src-path}/contract/" includes="Contract.Mount.js"/>
+   <fileset dir="${js-src-path}/contract/" includes="Contract.Action.js"/>
+   <!--  watermark dir -->
+   <fileset dir="${js-src-path}/watermark/" includes="Watermark.js"/>
+   <fileset dir="${js-src-path}/watermark/" includes="Watermark.Dao.js"/>
+   <fileset dir="${js-src-path}/watermark/" includes="Watermark.Config.js"/>
+   <fileset dir="${js-src-path}/watermark/" includes="Watermark.Base.js"/>
+   <fileset dir="${js-src-path}/watermark/" includes="Watermark.Action.js"/>
+   <fileset dir="${js-src-path}/watermark/" includes="Watermark.Grid.js"/>
+   <!--  transcode dir -->
+   <fileset dir="${js-src-path}/transcode/" includes="Transcode.js"/>
+   <fileset dir="${js-src-path}/transcode/" includes="Transcode.Config.js"/>
+   <fileset dir="${js-src-path}/transcode/" includes="Transcode.Dao.js"/>
+   <fileset dir="${js-src-path}/transcode/" includes="Transcode.Base.js"/>
+   <fileset dir="${js-src-path}/transcode/" includes="Transcode.Action.js"/>
+   <fileset dir="${js-src-path}/transcode/" includes="Transcode.ReDetail.js"/>
+   <fileset dir="${js-src-path}/transcode/" includes="Transcode.ReTry.js"/>
+   <!--  vv dir -->
+   <fileset dir="${js-src-path}/vv/" includes="Vv.js"/>
+   <fileset dir="${js-src-path}/vv/" includes="Vv.Config.js"/>
+   <fileset dir="${js-src-path}/vv/" includes="Vv.Dao.js"/>
+   <fileset dir="${js-src-path}/vv/" includes="Vv.Base.js"/>
+   <fileset dir="${js-src-path}/vv/" includes="Vv.Action.js"/>
+   <!--  resource dir -->
+   <fileset dir="${js-src-path}/resource/" includes="Resource.js"/>
+   <fileset dir="${js-src-path}/resource/" includes="Resource.Config.js"/>
+   <fileset dir="${js-src-path}/resource/" includes="Resource.Dao.js"/>
+   <fileset dir="${js-src-path}/resource/" includes="Resource.Base.js"/>
+   <fileset dir="${js-src-path}/resource/" includes="Resource.Action.js"/>
+   <fileset dir="${js-src-path}/resource/" includes="Resource.Grid.js"/>
+   <fileset dir="${js-src-path}/resource/" includes="Resource.Query.js"/>
+   <fileset dir="${js-src-path}/resource/" includes="Resource.Util.js"/>
+   <fileset dir="${js-src-path}/resource/" includes="Resource.ContentManagerGrid.js"/>
+   <!--  cooperation dir -->
+   <fileset dir="${js-src-path}/cooperation/" includes="Cooperation.js"/>
+   <fileset dir="${js-src-path}/cooperation/" includes="Cooperation.Config.js"/>
+   <fileset dir="${js-src-path}/cooperation/" includes="Cooperation.Dao.js"/>
+   <fileset dir="${js-src-path}/cooperation/" includes="Cooperation.Base.js"/>
+   <fileset dir="${js-src-path}/cooperation/" includes="Cooperation.Recom.js"/>
+   <fileset dir="${js-src-path}/cooperation/" includes="Cooperation.Action.js"/>
+   <!--  ugc dir -->
+   <fileset dir="${js-src-path}/ugc/" includes="UGC.js"/>
+   <fileset dir="${js-src-path}/ugc/" includes="UGC.Action.js"/>
+   <fileset dir="${js-src-path}/ugc/" includes="UGC.Base.js"/>
+   <fileset dir="${js-src-path}/ugc/" includes="UGC.Config.js"/>
+   <fileset dir="${js-src-path}/ugc/" includes="UGC.Dao.js"/>
+   <fileset dir="${js-src-path}/ugc/" includes="UGC.Query.js"/>
+   <fileset dir="${js-src-path}/ugc/" includes="UGC.Grid.js"/>
+   <!--  gallery dir -->
+   <fileset dir="${js-src-path}/gallery/" includes="Gallery.js"/>
+   <fileset dir="${js-src-path}/gallery/" includes="Gallery.Action.js"/>
+   <fileset dir="${js-src-path}/gallery/" includes="Gallery.Base.js"/>
+   <fileset dir="${js-src-path}/gallery/" includes="Gallery.Config.js"/>
+   <fileset dir="${js-src-path}/gallery/" includes="Gallery.Dao.js"/>
+   <fileset dir="${js-src-path}/gallery/" includes="Gallery.Util.js"/>
+   <fileset dir="${js-src-path}/gallery/" includes="Gallery.Grid.js"/>
+   <fileset dir="${js-src-path}/gallery/" includes="Gallery.Upload.js"/>
+   <!--  partner dir -->
+   <fileset dir="${js-src-path}/partner/" includes="Partner.js"/>
+   <fileset dir="${js-src-path}/partner/" includes="Partner.Action.js"/>
+   <fileset dir="${js-src-path}/partner/" includes="Partner.Base.js"/>
+   <fileset dir="${js-src-path}/partner/" includes="Partner.Config.js"/>
+   <fileset dir="${js-src-path}/partner/" includes="Partner.Util.js"/>
+   <fileset dir="${js-src-path}/partner/" includes="Partner.Dao.js"/>
+   <fileset dir="${js-src-path}/partner/" includes="Partner.Management.js"/>
+   <fileset dir="${js-src-path}/partner/" includes="Partner.ManagementGrid.js"/>
+   <!--  list dir -->
+   <fileset dir="${js-src-path}/list/" includes="List.js"/>
+   <fileset dir="${js-src-path}/list/" includes="List.Action.js"/>
+   <fileset dir="${js-src-path}/list/" includes="List.Base.js"/>
+   <fileset dir="${js-src-path}/list/" includes="List.Config.js"/>
+   <fileset dir="${js-src-path}/list/" includes="List.Dao.js"/>
+   <fileset dir="${js-src-path}/list/" includes="List.Grid.js"/>
+</concat>
+<echo message="Merge lego.js Finished"/>
+</target>
+<!--Merge ui.js-->
+<target name="Merge ui.js" depends="Merge lego.js">
+<echo message="merge ui.js Begin"/>
+<concat destfile="${js-run-path}/ui.js" encoding="utf-8">
+   <!--  ui dir -->
+   <fileset dir="${js-src-path}/ui/" includes="jquery.ui.widget.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery-ui.custom.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.autocomplete.plugin.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery-ui-timepicker-addon.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.ui.datepicker-zh-cn.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.videoupload.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.ztree.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.jqgrid.locale.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.jqgrid.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.filters.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.jqgrid.default.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.etable.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="raphael.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.flowchart.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.scrollPagination.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.jqgrid.scrolling.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.scrollPagination.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.pager.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.tips.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="cors/jquery.xdr-transport.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="cors/jquery.postmessage-transport.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.tableToExcel.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="tagmanager.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.Jcrop.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.form.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.validate.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="additional-methods.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery-ui.gallery.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery-ui.uploaddlg.js"/>
+   <fileset dir="${js-src-path}/ui/" includes="jquery.ui.scroll.js"/>
+</concat>
+<echo message="Merge ui.js Finished"/>
+</target>
+
+</project>
+<!--$$CONTNET_END$$-->

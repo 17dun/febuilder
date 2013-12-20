@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--$$CONTNET_START$$-->
+<project name="Lego CSS Files Merge" default="Merge ui.css" basedir=".">
+ <property name="root-path" value="../../../.." />
+ <property name="fe-path" value="../.." />
+ <property name="css-src-path" value="${fe-path}/css-src" />
+ <property name="css-run-path" value="${root-path}/static/css" />
+<!--Merge lego.css-->
+<target name="Merge lego.css" >
+<echo message="merge lego.css Begin"/>
+<concat destfile="${css-run-path}/lego.css" encoding="utf-8">
+   <!--  core dir -->
+   <fileset dir="${css-src-path}/core/" includes="core.css"/>
+   <fileset dir="${css-src-path}/core/" includes="reset.css"/>
+   <!--  com dir -->
+   <fileset dir="${css-src-path}/com/" includes="com.css"/>
+   <!--  index dir -->
+   <fileset dir="${css-src-path}/index/" includes="index.css"/>
+   <!--  upload dir -->
+   <fileset dir="${css-src-path}/upload/" includes="upload.css"/>
+   <!--  ftp dir -->
+   <fileset dir="${css-src-path}/ftp/" includes="ftp.css"/>
+   <!--  material dir -->
+   <fileset dir="${css-src-path}/material/" includes="material.css"/>
+   <!--  suggest dir -->
+   <fileset dir="${css-src-path}/suggest/" includes="suggest.css"/>
+   <!--  people dir -->
+   <fileset dir="${css-src-path}/people/" includes="people.css"/>
+   <!--  album dir -->
+   <fileset dir="${css-src-path}/album/" includes="album.css"/>
+   <!--  program dir -->
+   <fileset dir="${css-src-path}/program/" includes="program.css"/>
+   <!--  video dir -->
+   <fileset dir="${css-src-path}/video/" includes="video.css"/>
+   <!--  audit dir -->
+   <fileset dir="${css-src-path}/audit/" includes="audit.css"/>
+   <!--  transcode dir -->
+   <fileset dir="${css-src-path}/transcode/" includes="transcode.css"/>
+   <!--  pilosity dir -->
+   <fileset dir="${css-src-path}/pilosity/" includes="pilosity.css"/>
+   <!--  collection dir -->
+   <fileset dir="${css-src-path}/collection/" includes="playlist.css"/>
+</concat>
+<echo message="Merge lego.css Finished"/>
+</target>
+<!--Merge ui.css-->
+<target name="Merge ui.css" depends="Merge lego.css">
+<echo message="merge ui.css Begin"/>
+<concat destfile="${css-run-path}/ui.css" encoding="utf-8">
+   <!--  ui dir -->
+   <fileset dir="${css-src-path}/ui/" includes="bootstrap.css"/>
+   <fileset dir="${css-src-path}/ui/" includes="bootstrap-jq.css"/>
+   <fileset dir="${css-src-path}/ui/" includes="jquery.fileupload-ui.css"/>
+   <fileset dir="${css-src-path}/ui/" includes="jquery.tips.css"/>
+   <fileset dir="${css-src-path}/ui/" includes="jqgrid.css"/>
+   <fileset dir="${css-src-path}/ui/" includes="ztree.css"/>
+   <fileset dir="${css-src-path}/ui/" includes="jquery-ui-timepicker-addon.css"/>
+   <fileset dir="${css-src-path}/ui/" includes="typeahead.css"/>
+   <fileset dir="${css-src-path}/ui/" includes="jquery.Jcrop.css"/>
+   <fileset dir="${css-src-path}/ui/" includes="tagmanager.css"/>
+   <fileset dir="${css-src-path}/ui/" includes="lego-custom.css"/>
+</concat>
+<echo message="Merge ui.css Finished"/>
+</target>
+
+</project>
+<!--$$CONTNET_END$$-->
